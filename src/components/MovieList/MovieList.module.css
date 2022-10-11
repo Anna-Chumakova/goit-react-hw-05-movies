@@ -1,0 +1,17 @@
+.linkItem {
+    list-style: none;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.linkMovie:hover,
+.linkMovie:focus {
+    color: blue;
+}
+.listMovie {
+    padding: 25px;
+}
+.linkMovie {
+    text-decoration: none;
+}

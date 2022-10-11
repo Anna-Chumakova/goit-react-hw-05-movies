@@ -1,6 +1,8 @@
 import { GetPopularMovie } from "components/GetFilms/GetFilms"
 import { useState, useEffect } from "react";
 import Loader from "components/Loader/Loader";
+import { MovieList } from "components/MovieList/MovieList";  
+
 
 export const Home = () => {
     const [item, setItem] = useState([]);
@@ -25,11 +27,7 @@ export const Home = () => {
     return (
         <div>
             {loading && <Loader />}
-            {isMovies && item.map((results) => {
-                return <li key={results.id}>
-                    {results.title ? results.title : results.name}
-                </li>
-            })}
+            {isMovies && <MovieList item={item}/>}
             {error && <p>Будь ласка спробуйте пізніше...</p>}
         </div>
     )
