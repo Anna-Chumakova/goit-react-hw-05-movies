@@ -7,5 +7,11 @@ export const MovieList = ({ item }) => {
             <Link to={`/movie/${id}`} className={styles.linkMovie}>{title ? title : name}</Link>
             </li>
     })
-    return <ul className={styles.listMovie}>{element}</ul>;
+    return (
+        <div className={styles.container}>
+            <h1 className={styles.title}>Trending today</h1>
+            <ul className={styles.listMovie}>{element}</ul>
+        </div>
+        
+    );
 }

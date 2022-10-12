@@ -26,6 +26,7 @@ export const Home = () => {
     const isMovies = Boolean(item.length);    
     return (
         <div>
+            
             {loading && <Loader />}
             {isMovies && <MovieList item={item}/>}
             {error && <p>Будь ласка спробуйте пізніше...</p>}

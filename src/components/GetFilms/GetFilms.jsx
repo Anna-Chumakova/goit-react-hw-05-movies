@@ -1,16 +1,31 @@
 import axios from "axios";
 
-const URL = "https://api.themoviedb.org/3/trending/all/day";
+const URL = "https://api.themoviedb.org/3";
+const urlTrending = "/trending/all/day"
+const urlId = "/movie/"
 const KEY = "1026e0f194f2bc4cc4b6e148bd5c040a";
+//https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 
-const instance = axios.create({
-    baseURL: URL,
+
+export const GetPopularMovie = async () => {
+    const instance = axios.create({
+    baseURL: `${URL}${urlTrending}`,
+
     params: {
         api_key: KEY,
     }
 })
+    const { data } = await instance.get();
+    return data;
+}
+export const GetMovieById = async ( id ) => {
+    const instance = axios.create({
+    baseURL: `${URL}${urlId}${id}`,
 
-export const GetPopularMovie = async() => {
+    params: {
+        api_key: KEY,
+    }
+})
     const { data } = await instance.get();
     return data;
 }
