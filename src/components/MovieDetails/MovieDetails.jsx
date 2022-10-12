@@ -1,5 +1,5 @@
 import { useEffect, useState, } from "react";
-import { useParams, useNavigate, Link, Outlet } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 import { GetMovieById } from "components/GetFilms/GetFilms";
 import styles from "./MovieDetails.module.css";
