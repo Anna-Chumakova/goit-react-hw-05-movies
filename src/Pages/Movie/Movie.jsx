@@ -1,7 +1,7 @@
-import { MovieDetails } from "components/MovieDetails/MovieDetails";
-import { useState, useEffect } from "react";
+//import { MovieDetails } from "components/MovieDetails/MovieDetails";
+//import { useState, useEffect } from "react";
 // import { GetMovieById } from "components/GetFilms/GetFilms";
-import Loader from "components/Loader/Loader";
+//import Loader from "components/Loader/Loader";
 
 export const Movie = (props) => {
     // const [item, setItem] = useState([]);
