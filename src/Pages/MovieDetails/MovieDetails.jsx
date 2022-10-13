@@ -1,9 +1,9 @@
 import { useEffect, useState, } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link, Outlet } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 import { GetMovieById } from "components/GetFilms/GetFilms";
 import styles from "./MovieDetails.module.css";
-//import { Cast } from "components/Cast/Cast";
+
 
 export const MovieDetails = () => {
     
@@ -37,7 +37,7 @@ export const MovieDetails = () => {
     
     return <div>
         
-        <button onClick={goMovie}>Go to home</button>
+        <button onClick={goMovie} className={styles.btnGoHome}>Go to home</button>
         {loading && <Loader />}
         {error && <p>Something went wrong</p>}
         {state && (
@@ -55,11 +55,12 @@ export const MovieDetails = () => {
                     </div>
                 </div>
                 <div>
-                    <p>Additional information</p>
-                    <Link to={`/movies/${id}/cast`}>Cast</Link>
-                    
-                    
-                    <p>Reviews</p>
+                    <h2 className={styles.title}>Additional information</h2>
+                    <ul className={styles.infoList}>
+                        <li ><Link to={"cast"} className={styles.infoLink}>Cast</Link></li>
+                        <li ><Link to={"reviews"} className={styles.infoLink}>Reviews</Link></li>
+                    </ul>
+                    <Outlet />
                 </div>
                 </>
         )}
