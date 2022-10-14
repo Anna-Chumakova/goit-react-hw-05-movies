@@ -1,7 +1,8 @@
 import { GetMovieCast } from "components/GetFilms/GetFilms";
 import { useState, useEffect } from "react";
-//import Loader from "components/Loader/Loader";
-import { useParams} from "react-router-dom";
+import Loader from "components/Loader/Loader";
+import { useParams } from "react-router-dom";
+import { CastList } from "components/CastList/CastList";
 
 export const Cast = () => {
     const [state, setState] = useState(null);
@@ -25,6 +26,10 @@ export const Cast = () => {
     }, [id]);
     
     return (
-        <div>Cast</div>
+        <div>
+            {loading && <Loader />}
+            {error && <p>Something went wrong</p>}
+            {state && <CastList item={ state.cast} />}
+        </div>
     )
 }

@@ -1,10 +1,15 @@
 import styles from "./MovieList.module.css"
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const MovieList = ({ item }) => {
+
+    const getClassName = ({ isActive }) => {
+        return isActive ? `${styles.linkMovie} ${styles.active}` : `${styles.linkMovie}`;
+    };
+
     const element = item.map(({id, title, name}) => {
         return <li key={id} className={styles.linkItem}>
-            <Link to={`/movie/${id}`} className={styles.linkMovie}>{title ? title : name}</Link>
+            <NavLink to={`/movie/${id}`} className={getClassName}>{title ? title : name}</NavLink>
             </li>
     })
     return (

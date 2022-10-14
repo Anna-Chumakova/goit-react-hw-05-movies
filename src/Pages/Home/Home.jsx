@@ -29,7 +29,7 @@ export const Home = () => {
             
             {loading && <Loader />}
             {isMovies && <MovieList item={item}/>}
-            {error && <p>Будь ласка спробуйте пізніше...</p>}
+            {error && <p>Please try later...</p>}
         </div>
     )
     
