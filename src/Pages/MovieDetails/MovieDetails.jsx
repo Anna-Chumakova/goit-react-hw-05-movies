@@ -1,5 +1,5 @@
 import { useEffect, useState, } from "react";
-import { useParams, useNavigate, Link, Outlet } from "react-router-dom";
+import { useParams, useNavigate, Link, Outlet, useLocation } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 import { GetMovieById } from "components/GetFilms/GetFilms";
 import styles from "./MovieDetails.module.css";
@@ -12,7 +12,9 @@ const MovieDetails = () => {
     const [error, setError] = useState(null);
 
     const { id } = useParams();
-    //const location = useLocation();
+    const location = useLocation();
+    const from = location.state?.from || "/";
+
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -32,9 +34,13 @@ const MovieDetails = () => {
     }, [id]);
     
     
-    const goMovie = () => navigate(-1);
+    const goMovie = () => navigate(from);
+    const isCastPage = location.pathname.includes("cast");
+    const castLink = isCastPage ? `/movie/${id}` : `/movie/${id}/cast`;
     
-    
+    const isReviewsPage = location.pathname.includes("reviews");
+    const ReviewsLink = isReviewsPage ? `/movie/${id}` : `/movie/${id}/reviews`;
+
     return <div>
         
         <button onClick={goMovie} className={styles.btnGoHome}>Go back</button>
@@ -57,8 +63,8 @@ const MovieDetails = () => {
                 <div>
                     <h2 className={styles.title}>Additional information</h2>
                     <ul className={styles.infoList}>
-                        <li ><Link to={"cast"} className={styles.infoLink}>Cast</Link></li>
-                        <li ><Link to={"reviews"} className={styles.infoLink}>Reviews</Link></li>
+                        <li ><Link state={{from}} to={castLink} className={styles.infoLink}>Cast</Link></li>
+                        <li ><Link state={{from}} to={ReviewsLink} className={styles.infoLink}>Reviews</Link></li>
                     </ul>
                     <Outlet />
                 </div>
