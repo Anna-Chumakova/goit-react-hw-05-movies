@@ -1,0 +1,34 @@
+.listMovie {
+    padding: 25px;
+
+}
+
+.linkItem {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.linkMovie {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.active {
+    color: blue;
+}
+
+.linkMovie:hover:not(.active),
+.linkMovie:focus:not(.active) {
+    color: blue;
+}
+
+.title {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.container {
+    margin-left: 15px;
+}

@@ -5,14 +5,14 @@ import { GetMovieById } from "components/GetFilms/GetFilms";
 import styles from "./MovieDetails.module.css";
 
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
     
-    //const placeholderImg = 'https://image.tmdb.org/t/p/w500/AcKVlWaNVVVFQwro3nLXqPljcYA.jpg';
     const [state, setState] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const { id } = useParams();
+    //const location = useLocation();
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -31,19 +31,19 @@ export const MovieDetails = () => {
         fetchMovieById();
     }, [id]);
     
-    //const goBack = () => navigate(-1);
-    const goMovie = () => navigate("/");
+    
+    const goMovie = () => navigate(-1);
     
     
     return <div>
         
-        <button onClick={goMovie} className={styles.btnGoHome}>Go to home</button>
+        <button onClick={goMovie} className={styles.btnGoHome}>Go back</button>
         {loading && <Loader />}
         {error && <p>Something went wrong</p>}
         {state && (
             <>
                 <div className={styles.flexContainer}>
-                    <img src={`https://image.tmdb.org/t/p/w500${state.poster_path}`} alt="" />
+                    <img src={state.poster_path ? `https://image.tmdb.org/t/p/w500${state.poster_path}` : "https://image.tmdb.org/t/p/w500/AcKVlWaNVVVFQwro3nLXqPljcYA.jpg"} alt="" />
                     <div className={styles.infoContainer}>
                         <h2>{ `${state.title}, ${state.release_date.slice(0, 4)}`}</h2>
                         <p>User score: {state.vote_average}</p>
@@ -66,3 +66,4 @@ export const MovieDetails = () => {
         )}
     </div>;
 }
+export default MovieDetails;

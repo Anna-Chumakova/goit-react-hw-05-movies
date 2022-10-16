@@ -4,7 +4,7 @@ import Loader from "components/Loader/Loader";
 import { useParams } from "react-router-dom";
 import { CastList } from "components/CastList/CastList";
 
-export const Cast = () => {
+const Cast = () => {
     const [state, setState] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -33,3 +33,4 @@ export const Cast = () => {
         </div>
     )
 }
+export default Cast;

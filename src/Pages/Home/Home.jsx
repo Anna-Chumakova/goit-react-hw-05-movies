@@ -4,7 +4,7 @@ import Loader from "components/Loader/Loader";
 import { MovieList } from "components/MovieList/MovieList";  
 
 
-export const Home = () => {
+const Home = () => {
     const [item, setItem] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -34,3 +34,4 @@ export const Home = () => {
     )
     
 }
+export default Home;

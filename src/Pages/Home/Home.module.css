@@ -1,9 +1,0 @@
-.linkMovie {
-    list-style: none;
-    font-size: 16px;
-    color: black;
-}
-.linkMovie:hover,
-.linkMovie:focus {
-    color: blue;
-} 

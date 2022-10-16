@@ -1,3 +1,4 @@
+import propTypes from 'prop-types'
 export const ReviewsList = ({ item }) => {
     
     const { results, total_pages } = item.data;
@@ -11,6 +12,8 @@ export const ReviewsList = ({ item }) => {
         </li>)
         })
     return (<ul>{element}</ul>); 
-    }
-           
+    }          
+}
+ReviewsList.propTypes = {
+    item: propTypes.object.isRequired
 }

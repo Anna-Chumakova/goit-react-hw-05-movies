@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { GetMovieReviews } from "components/GetFilms/GetFilms";
 import { ReviewsList } from "components/ReviewsList/ReviewsList";
 
-export const Reviews = () => {
+const Reviews = () => {
     const [state, setState] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -35,3 +35,4 @@ export const Reviews = () => {
         </div>
     )
 }
+export default Reviews;

@@ -1,3 +1,4 @@
+import propTypes from 'prop-types'
 export const CastList = ({ item }) => {
     const element = item.map(({ name, credit_id, character, profile_path }) => {
     
@@ -7,4 +8,7 @@ export const CastList = ({ item }) => {
             <p>{character}</p></li>)
     })
     return (<ul>{ element}</ul>)
+}
+CastList.propTypes = {
+    item: propTypes.array.isRequired
 }
