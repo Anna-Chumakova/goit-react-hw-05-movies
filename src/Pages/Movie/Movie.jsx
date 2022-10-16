@@ -6,7 +6,7 @@ import { SearchForm } from "./SearchForm/SearchForm";
 import { SearchMovieList } from "components/SearchMovieList/SearchMovie";
 
 const Movie = () => {
-    const [item, setItem] = useState(null);
+    const [items, setItems] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +20,7 @@ const Movie = () => {
             setLoading(true);
             setError(null);
             const data = await GetMovieSearch(searchQuery); 
-            setItem( data.data);
+            setItems( data.data);
         } catch (error) {
             setError(error)
         }
@@ -46,7 +46,7 @@ const Movie = () => {
         <>
             <SearchForm onSubmit={onSearch} />
             {loading && <Loader />}
-            {item && <SearchMovieList item={item} />} 
+            {items && <SearchMovieList item={items} />} 
             {error && <p>Please try later...</p>}
         </>
     )

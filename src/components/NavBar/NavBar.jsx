@@ -8,7 +8,7 @@ export const NavBar = () => {
     return (
         <nav className={styles.container}>
             <NavLink to={"/"} className={getClassName} end>Home</NavLink>
-            <NavLink to={"/movie"} className={getClassName} end>Movie</NavLink>
+            <NavLink to={"/movie"} className={getClassName}>Movie</NavLink>
             
         </nav>
     );
